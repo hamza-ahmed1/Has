@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<wait.h>
+int main(int argc,char *args[])
+{
+
+	pid_t p,q,r;
+	int sum=0;
+	float avg=0;
+	p=fork();
+	q=fork();
+	if(p<0){printf("error while creating ");}
+	else if(p==0)
+	{
+		//child 1
+		int i;
+		for(int i=1; i<argc; i++)
+			{
+		sum+=atoi(args[i]);
+			
+			}
+		printf("sum : %d \n",sum);
+	}
+	else if(q==0)
+	{
+		int i;
+		for(int i=1; i<argc; i++)
+		{
+
+		avg+=atoi(args[i]);
+		}
+		printf("Avg is %f \n",avg/argc-1);
+	}
+	else 
+	{	
+		wait(NULL);
+		
+	}
+}
+	}
+}
+	}
+}
+	}
+}
+	}
+}
+	}
+}
+	}
+}
